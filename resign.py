@@ -60,7 +60,10 @@ def process_resign(working_dir, profile, certificate, bundle_id):
         rename_bundle_id_for_plug_in(bundle, bundle_id, origin_bundle_id)
     resign(bundle, certificate, "{}/entitlements.plist".format(working_dir))
 
-    output_name = "{}-resigned.ipa".format(bundle_id)
+    output_bundle_id = bundle_id
+    if output_bundle_id == None:
+        output_bundle_id = common.get_original_bundle_id(bundle)
+    output_name = "{}-resigned.ipa".format(output_bundle_id)
     common.zip_payload(working_dir, output_name)
 
 if __name__ == "__main__":
