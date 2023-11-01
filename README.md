@@ -9,7 +9,7 @@ In iOS development, manually resigning an existing ipa is a complex and time con
 
 ## Usage
 
-Given an existing `Their_App.ipa` file and you want to resign this ipa file you will need to prepare your new signing identity (your certificate and the provisiong profile). 
+Given an existing `Their_App.ipa` file and you want to resign this ipa file you will need to prepare your new signing identity (your _certificate_ and the _provisiong profile_). 
 
 Once you've have your code signing identity ready in your local machine, you can run resign.py from terminal (make sure your have Python installed on your machine): 
 
@@ -31,18 +31,21 @@ python3 resign.py \
 ```
 
 # inject_framework.py - Easily injecting a framework into an .ipa file
-You have a framework which you want to inject into an existing .ipa file? `inject_framework.py`'s here for the rescure. 
-`inject_framework.py` is made ontop of `resign.py` and [optool](https://github.com/alexzielenski/optool)
+You have a framework which you want to inject into an existing .ipa file? `inject_framework.py` is here for the rescure. 
+`inject_framework.py` is made ontop of `resign.py` and [optool](https://github.com/alexzielenski/optool). 
+
 
 Usages
 ```bash
 python3 inject_framework.py \
---ipa your_ipa.ipa \
---profile <Your provision profile path> \
---certificate <your certificate name> \
+--ipa <path to your_ipa file> \
+--profile <Path to your provisioning profile> \
+--certificate <path to your certificate> \
 --bundle <new bundle id> \
---framework <framework path>
+--framework <path to the framework you want to inject>
 ```
+
+And then DONE!, now you have a newly signed .ipa file with the framework injected into the app, and the framework will be linked at runtime.
 
 Example
 ```bash
