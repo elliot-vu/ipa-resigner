@@ -15,7 +15,7 @@ Once you've have your code signing identity ready in your local machine, you can
 
 ```bash
 python3 resign.py \
---ipa <path to Some_App.ipa \
+--ipa <path to Some_App.ipa> \
 --profile <Path to your provision profile> \
 --certificate <path to your certificate> \
 --bundle <new bundle id>
