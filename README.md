@@ -9,13 +9,13 @@ In iOS development, manually resigning an existing ipa is a complex and time con
 
 ## Usage
 
-Given an existing `Their_App.ipa` file and you want to resign this ipa file you will need to prepare your new signing identity (your _certificate_ and the _provisiong profile_). 
+Given an existing `Some_App.ipa` file and you want to resign this ipa file you will need to prepare your new signing identity (your _certificate_ and the _provisiong profile_). 
 
 Once you've have your code signing identity ready in your local machine, you can run resign.py from terminal (make sure your have Python installed on your machine): 
 
 ```bash
 python3 resign.py \
---ipa <path to Their_App.ipa \
+--ipa <path to Some_App.ipa \
 --profile <Path to your provision profile> \
 --certificate <path to your certificate> \
 --bundle <new bundle id>
