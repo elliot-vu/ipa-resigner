@@ -17,7 +17,10 @@ def rename_bundle_id(bundle, new_bundle_id):
     common.execute_shell_command("/usr/libexec/PlistBuddy -c \"Set :CFBundleIdentifier {}\" {}/Info.plist".format(new_bundle_id, bundle))
 
 def rename_bundle_id_for_plug_in(bundle, new_bundle_id, app_original_bundle_id):
-    plug_ins = common.find_folders_with_extension(bundle + "/PlugIns", "appex")
+    pluginFolderPath = bundle + "/PlugIns"
+    if not os.path.exists(pluginFolderPath):
+        return
+    plug_ins = common.find_folders_with_extension(pluginFolderPath, "appex")
     for plug_in in plug_ins:
         original_bundle_id = common.get_original_bundle_id(plug_in)
         new_plug_in_bundle_id = original_bundle_id.replace(app_original_bundle_id, new_bundle_id)
